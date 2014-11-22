@@ -5,8 +5,8 @@ Plugin URI: https://wppopupmaker.com
 Donate link: 
 Tags: modal,modal box,modal form,modal window,popup,popup box,popup form,popup window,ajax forms, lightbox, login modals
 Requires at least: 3.4
-Tested up to: 4.0
-Stable tag: 1.0
+Tested up to: 4.0.1
+Stable tag: 1.0.1
 Easily turn users into cash using Popup Maker - the most versatile & expansive popup plugin for WordPress!
 
 == Description ==
@@ -28,7 +28,7 @@ Use any of your forms from the most popular form plugins, out-of-the-box, inside
 * Unlimited Content Customization
  * Use the Popup Maker WYSIWIG Content Editor to easily create as many popups as you like with any content you like! Plus, use Short Codes, HTML, and other code to give your popups ultimate power! Adding content in Popup Maker is just like adding content in WordPress.
 * Use Popups Conditionally 
- * Target specific users for your popups! Our Targeting Conditions feature allows you to tailor your popups to specific users by giving you the ability to use popups exactly where you want. Use Auto Open, Scroll Triggered & Exit Intent Popup Extensions to enhance your popups’ effectiveness.
+ * Target specific users for your popups! Our Targeting Conditions feature allows you to tailor your popups to specific users by giving you the ability to use popups exactly where you want. Use Auto Open, Scroll Triggered & Exit Intent Popup Extensions to enhance your popups' effectiveness.
 * One (1) Customizable Popup Theme
  * Customize every aspect of our default theme to match your needs. To differentiate your popup themes, you can create unlimited themes by upgrading to the Unlimited Themes Extension.
 * Popup Opening Animations
@@ -42,7 +42,7 @@ Use any of your forms from the most popular form plugins, out-of-the-box, inside
 * Responsive Popups
  * Create popups ready for any device in seconds by simply selecting an option from our robust Responsive Popups tool set.
 * Lightweight, Dependable & Versatile
- * Speed matters, and at only 5.9kb, our popups won’t slow you down. Our optimization techniques and program enhancement means your popups will perform at a consistently high level with 100% uptime.
+ * Speed matters, and at only 5.9kb, our popups won't slow you down. Our optimization techniques and program enhancement means your popups will perform at a consistently high level with 100% uptime.
 
 = Our extensions enhance your popups and drastically improve your conversion rates =
 * Exit Intent Popups (coming soon)
@@ -59,9 +59,19 @@ For more information, visit [Popup Maker](https://wppopupmaker.com "WordPress Po
 
 [Plugin Developers Site](http://wizardinternetsolutions.com "Web & Plugin Development") - Wizard Internet Solutions
 
-== Installation ==
-1. Login to WordPress and Popup Maker.
+== Screenshots ==
+
+1. Create an infinite amount of popups and put any content inside your popups! No restrictions, no limitations - customize your popup content to fit your needs.
+2. Use the Popup Maker WYSIWIG Content Editor to easily customize your popups' content! Plus, use Short Codes, HTML, and other code to give your popups ultimate power. Adding popups and content in Popup Maker is just like adding pages and content in WordPress.
+3. Popup Maker offers you pixel perfect positioning settings to match your needs and fit your website perfectly.
+4. Create high performing themes in minutes with our user friendly Theme Builder.
+5. Theme every element of your popups to blend perfectly into your site: Background Overlay, Popup Container, Close Button, Google Fonts & much more. All in all, customize your popup theme with over 60 options!
 
 == Changelog ==
 = v1.0.0 =
 * Initial Release
+= v1.0.1 =
+* Removed links to getting started from "Dashboard" Admin Menu.
+* Added Line Height Setting to Both Title and Close, Allowing Perfect Circles for close button.
+* Updated admin styles.
+* Misc Admin changes, including new filters/hooks for upcoming extensions.
