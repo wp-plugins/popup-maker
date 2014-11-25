@@ -63,7 +63,7 @@ function popmake_get_settings() {
 function popmake_register_settings() {
 
 	if ( false == get_option( 'popmake_settings' ) ) {
-		add_option( 'popmake_settings' );
+		add_option( 'popmake_settings', popmake_default_settings() );
 	}
 
 	foreach( popmake_get_registered_settings() as $tab => $settings ) {
@@ -155,7 +155,7 @@ function popmake_get_registered_settings() {
 				'popmake_powered_by_opt_out' => array(
 					'id' => 'popmake_powered_by_opt_out',
 					'name' => __( 'Hide Powered By Link?', 'popup-maker' ),
-					'desc' => sprintf( __( 'If you check this box, it will hide the <em>Powered By Popup Maker</em> tag on all of your popups. But don\'t forget to <a href="%s">rate and review us on WordPress</a>!', 'popup-maker' ), 'https://wordpress.org/support/view/plugin-reviews/popup-maker'),
+					'desc' => sprintf( __( 'If you check this box, it will hide the <em>Powered By Popup Maker</em> tag on all of your popups. But don\'t forget to <a href="%s">rate and review us on WordPress</a>!', 'popup-maker' ), 'https://wordpress.org/support/view/plugin-reviews/popup-maker?utm_source=Plugin+Admin&utm_medium=Powered+By+Review&utm_campaign=WP+Reviews'),
 					'type' => 'checkbox'
 				),
 				'popmake_powered_by_size' => array(
@@ -348,6 +348,23 @@ function popmake_get_settings_tabs() {
 
 	return apply_filters( 'popmake_settings_tabs', $tabs );
 }
+
+
+/**
+ * Section Callback
+ *
+ * Renders the header.
+ *
+ * @since 1.0
+ * @param array $args Arguments passed by the setting
+ * @return void
+ */
+function popmake_section_callback( $args ) {
+	echo '</td></tr></tbody></table>';
+	echo $args['desc'];
+	echo '<table class="form-table"><tbody><tr style="display:none;"><td colspan="2">';
+}
+
 
 
 /**
