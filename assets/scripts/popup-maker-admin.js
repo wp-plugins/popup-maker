@@ -160,7 +160,7 @@ var PopMakeAdmin;
                     current_ids = $textarea.val().split(',');
 
                     current_ids = jQuery.grep(current_ids, function (value) {
-                        return value !== removeItem;
+                        return parseInt(value, 10) !== parseInt(removeItem, 10);
                     });
 
                     $item.parent('span').remove();
@@ -580,7 +580,7 @@ var PopMakeAdmin;
                 .on('click', function () { update_type_options(jQuery(this)); })
                 .each(function () { update_type_options(jQuery(this)); });
 
-            jQuery('input[type="radio"][name*="radio_checkbox_"]')
+            jQuery('input[type="radio"][name*="popup_targeting_condition_"]')
                 .on('click', function () { update_specific_checkboxes(jQuery(this)); })
                 .each(function () { update_specific_checkboxes(jQuery(this)); });
 
