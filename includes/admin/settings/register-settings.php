@@ -124,7 +124,7 @@ function popmake_get_registered_settings() {
 		/** General Settings */
 		'general' => apply_filters( 'popmake_settings_general',
 			array(
-/*
+
 				'custom_post_type_support_heading' => array(
 					'id' => 'custom_post_type_support_heading',
 					'name' => '<strong>' . __( 'Support for CPTs', 'popup-maker' ) . '</strong>',
@@ -142,10 +142,9 @@ function popmake_get_registered_settings() {
 					'id' => 'supported_taxonomies',
 					'name' => __( 'Supported Taxonomies?', 'popup-maker' ),
 					//'desc' => __( 'Check this to defy how awesome Popup Maker is. <strong>For those who like to make little kids cry or are compulsive liers.</strong>.', 'popup-maker' ),
-					'type' => 'multicheck',
+					'type' => '.',
 					'options' => get_taxonomies(array('_builtin' => false, 'public'   => true))
 				),
-*/
 				'powered_by' => array(
 					'id' => 'powered_by',
 					'name' => '<strong>' . __( 'Powered By', 'popup-maker' ) . '</strong>',
@@ -208,6 +207,16 @@ function popmake_get_registered_settings() {
 		),
 		'licenses' => apply_filters('popmake_settings_licenses',
 			array()
+		),
+		'misc' =>  apply_filters('popmake_settings_misc',
+			array(
+				'enable_easy_modal_compatibility_mode' => array(
+					'id' => 'enable_easy_modal_compatibility_mode',
+					'name' => __( 'Enable Easy Modal v2 Compatibility Mode', 'popup-maker' ),
+					'desc' => __( 'This will automatically make any eModal classes you have added to your site launch the appropriate Popup after import.', 'popup-maker' ),
+					'type' => 'checkbox'
+				),
+			)
 		),
 	);
 

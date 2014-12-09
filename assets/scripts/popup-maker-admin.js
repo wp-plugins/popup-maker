@@ -1,3 +1,6 @@
+/**
+ * Popup Maker v1.1
+ */
 var PopMakeAdmin;
 (function () {
     "use strict";
@@ -261,6 +264,15 @@ var PopMakeAdmin;
         initialize_color_pickers: function () {
             var self = this;
             jQuery('.color-picker').wpColorPicker({
+                change: function (event) {
+                    self.throttle(setTimeout(function () {
+                        self.update_theme();
+                    }, 5), 250);
+                    var $input = jQuery(event.currentTarget);
+                    if ($input.hasClass('background-color')) {
+                        $input.parents('table').find('.background-opacity').show();
+                    }
+                },
                 clear: function (event) {
                     self.update_theme();
                     var $input = jQuery(event.currentTarget).prev();
@@ -497,7 +509,6 @@ var PopMakeAdmin;
                             jQuery('.responsive-size-only').hide();
                         }
                     }
-
                 },
                 update_animation = function () {
                     jQuery('.animation-speed, .animation-origin').hide();
@@ -526,7 +537,19 @@ var PopMakeAdmin;
                     if (val.indexOf("right") >= 0) {
                         jQuery('tr.right').show();
                     }
+                },
+                auto_open_enabled_check = function () {
+                    if (jQuery("#popup_auto_open_enabled").is(":checked")) {
+                        jQuery('.auto-open-enabled').show();
+                    } else {
+                        jQuery('.auto-open-enabled').hide();
+                    }
+                },
+                auto_open_reset_cookie_key = function () {
+                    jQuery('#popup_auto_open_cookie_key').val((new Date().getTime()).toString(16));
                 };
+
+
 
             jQuery('#popuptitlediv').insertAfter('#titlediv');
             jQuery('[name^="menu-item"]').removeAttr('name');
@@ -569,8 +592,10 @@ var PopMakeAdmin;
                         jQuery('#title').prop('required', 'required');
                     }
                 })
-                .on('change', "#popup_display_size", function () { update_size(); })
                 .on('click', '#popup_display_custom_height_auto', function () { update_size(); })
+                .on('click', "#popup_auto_open_enabled", function () { auto_open_enabled_check(); })
+                .on('click', ".popmake-reset-auto-open-cookie-key", function () { auto_open_reset_cookie_key(); })
+                .on('change', "#popup_display_size", function () { update_size(); })
                 .on('change', "#popup_display_animation_type", function () { update_animation(); })
                 .on('change', '#popup_display_location', function () { update_location(); });
 
@@ -598,6 +623,11 @@ var PopMakeAdmin;
             update_size();
             update_animation();
             update_location();
+
+            auto_open_enabled_check();
+            if (jQuery('#popup_auto_open_cookie_key').val() === '') {
+                auto_open_reset_cookie_key();
+            }
         },
 
         theme_page_listeners: function () {
@@ -610,7 +640,7 @@ var PopMakeAdmin;
                 .on('change', 'select.font-weight, select.font-style', function () {
                     self.update_font_selectboxes();
                 })
-                .on('change input focusout', 'select, input:not(.color-picker)', function () {
+                .on('change input focusout', 'select, input', function () {
                     self.update_theme();
                 })
                 .on('change', 'select.border-style', function () {
@@ -626,13 +656,6 @@ var PopMakeAdmin;
                         table = $this.parents('table');
                     jQuery('tr.topleft, tr.topright, tr.bottomleft, tr.bottomright', table).hide();
                     jQuery('tr.' + $this.val(), table).show();
-                })
-                .on('change, irischange', '.color-picker', function (event) {
-                    self.update_theme();
-                    var $input = jQuery(event.currentTarget);
-                    if ($input.hasClass('background-color')) {
-                        $input.parents('table').find('.background-opacity').show();
-                    }
                 });
         },
         update_theme: function () {

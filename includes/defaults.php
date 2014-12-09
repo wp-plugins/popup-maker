@@ -37,14 +37,34 @@ function popmake_popup_display_defaults( $defaults = array() ) {
 	));
 }
 
+
 add_filter('popmake_popup_close_defaults', 'popmake_popup_close_defaults', 0);
-
-
 function popmake_popup_close_defaults( $defaults ) {
 	return array_merge( $defaults, array(
 		'overlay_click'	=> false,
 		'esc_press'		=> false,
 		'f4_press'		=> false,
+	));
+}
+
+
+add_filter('popmake_popup_click_open_defaults', 'popmake_popup_click_open_defaults', 0);
+function popmake_popup_click_open_defaults( $defaults ) {
+	return array_merge( $defaults, array(
+		'extra_selectors' => '',
+	));
+}
+
+
+add_filter('popmake_popup_auto_open_defaults', 'popmake_popup_auto_open_defaults');
+function popmake_popup_auto_open_defaults( $defaults ) {
+	return array_merge( $defaults, array(
+		'enabled' => NULL,
+		'delay' => 500,
+		'cookie_trigger' => 'close',
+		'cookie_time' => '1 month',
+		'cookie_path' => '/',
+		'cookie_key' => '',
 	));
 }
 

@@ -3,9 +3,9 @@
  * Plugin Name: Popup Maker
  * Plugin URI: https://wppopupmaker.com
  * Description: Easily create & style popups with any content. Theme editor to quickly style your popups. Add forms, social media boxes, videos & more. 
- * Author: Wizard Internet Solutions
- * Version: 1.0.6
- * Author URI: http://wizardinternetsolutions.com
+ * Author: Daniel Iser
+ * Version: 1.1.0
+ * Author URI: https://wppopupmaker.com
  * Text Domain: popup-maker
  * 
  * @package		POPMAKE
@@ -144,7 +144,7 @@ final class Popup_Maker {
 		}
 
 		if ( !defined('POPMAKE_VERSION') ) {
-			define('POPMAKE_VERSION', '1.0.6' );	
+			define('POPMAKE_VERSION', '1.1.0' );	
 		}
 
 		if ( !defined('POPMAKE_DB_VERSION') ) {
@@ -185,6 +185,7 @@ final class Popup_Maker {
 		require_once POPMAKE_DIR . 'includes/ajax-calls.php';
 
 
+		require_once POPMAKE_DIR . 'includes/importer/easy-modal-v2.php';
 		require_once POPMAKE_DIR . 'includes/integrations/gravityforms.php';
 		require_once POPMAKE_DIR . 'includes/integrations/google-fonts.php';
 		
@@ -203,7 +204,9 @@ final class Popup_Maker {
 			require_once POPMAKE_DIR . 'includes/admin/popups/dashboard-columns.php';
 			require_once POPMAKE_DIR . 'includes/admin/popups/metabox-close-fields.php';
 			require_once POPMAKE_DIR . 'includes/admin/popups/metabox-display-fields.php';
+			require_once POPMAKE_DIR . 'includes/admin/popups/metabox-click-open-fields.php';
 			require_once POPMAKE_DIR . 'includes/admin/popups/metabox-targeting-condition-fields.php';
+			require_once POPMAKE_DIR . 'includes/admin/popups/metabox-auto-open-popups-fields.php';
 			require_once POPMAKE_DIR . 'includes/admin/popups/post-type-item-metaboxes.php';
 			require_once POPMAKE_DIR . 'includes/admin/themes/metabox.php';
 			require_once POPMAKE_DIR . 'includes/admin/themes/metabox-close-fields.php';
@@ -213,6 +216,7 @@ final class Popup_Maker {
 			require_once POPMAKE_DIR . 'includes/admin/themes/metabox-title-fields.php';
 			require_once POPMAKE_DIR . 'includes/admin/themes/metabox-preview.php';
 			require_once POPMAKE_DIR . 'includes/admin/settings/settings-page.php';
+			require_once POPMAKE_DIR . 'includes/admin/tools/tools-page.php';
 			require_once POPMAKE_DIR . 'includes/admin/extensions/extensions-page.php';
 			require_once POPMAKE_DIR . 'includes/admin/help/help-page.php';
 			require_once POPMAKE_DIR . 'includes/admin/metabox-support.php';

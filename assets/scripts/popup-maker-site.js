@@ -1,5 +1,5 @@
 /**
- * Popup Maker v1.0.2
+ * Popup Maker v1.1
  */
 (function (jQuery) {
     "use strict";
@@ -1001,7 +1001,18 @@
             .each(function () {
                 var $this = jQuery(this),
                     settings = $this.data('popmake'),
-                    trigger_selector = '.popmake-' + settings.id + ', .popmake-' + settings.slug;
+                    click_open = settings.meta.click_open,
+                    auto_open = settings.meta.auto_open,
+                    trigger_selector = '.popmake-' + settings.id + ', .popmake-' + settings.slug,
+                    cookie,
+                    cookieName,
+                    cookieDate,
+                    setCookie,
+                    cookie_trigger;
+
+                if (click_open !== undefined && click_open.extra_selectors !== '') {
+                    trigger_selector += ', ' + click_open.extra_selectors;
+                }
 
                 jQuery(trigger_selector).css({cursor: "pointer"});
                 jQuery(document).on('click', trigger_selector, function (event) {
@@ -1010,6 +1021,44 @@
                     jQuery.fn.popmake.last_open_trigger = jQuery.fn.popmake.utilities.getXPath(this);
                     $this.popmake('open');
                 });
+
+                if (auto_open !== undefined) {
+                    jQuery.cookie.json = true;
+
+                    cookieName = "popmake-auto-open-" + settings.id + "-" + auto_open.cookie_key;
+
+                    cookie = jQuery.cookie(cookieName);
+                    setCookie = function () {
+                        if (auto_open.cookie_time !== '') {
+                            cookieDate = new Date();
+                            cookieDate.setTime(jQuery.fn.popmake.utilities.strtotime("+" + auto_open.cookie_time) * 1000);
+                            jQuery.cookie(cookieName, {opened: true, expires: cookieDate}, {
+                                expires: cookieDate,
+                                path: auto_open.cookie_path
+                            });
+                        }
+                    };
+                    if (cookie === undefined) {
+                        cookie_trigger = auto_open.cookie_trigger;
+                        if (cookie_trigger !== 'disabled') {
+                            if (cookie_trigger === 'open') {
+                                $this.on('popmakeAfterOpen', function () {
+                                    setCookie();
+                                });
+                            }
+                            if (cookie_trigger === 'close') {
+                                $this.on('popmakeBeforeClose', function () {
+                                    setCookie();
+                                });
+                            }
+
+                        }
+                        setTimeout(function () {
+                            jQuery.fn.popmake.last_open_trigger = 'Auto Open Popups ID-' + settings.id;
+                            $this.popmake('open');
+                        }, auto_open.delay);
+                    }
+                }
             });
     });
 }(jQuery));
