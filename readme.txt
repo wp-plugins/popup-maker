@@ -6,7 +6,7 @@ Donate link:
 Tags: popup,popups,modal,modals,popup form,form modal,conversion,conversions,dialog box,auto open
 Requires at least: 3.4
 Tested up to: 4.0.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 
 License: GNU Version 2 or Any Later Version
 Easily turn users into cash using Popup Maker - the most versatile & expansive popup plugin for WordPress!
@@ -74,12 +74,15 @@ For more information, visit [Popup Maker](https://wppopupmaker.com?utm_source=Wo
 
 == Changelog ==
 
+= v1.1.1 =
+* Fixed bug in JS that didn't properly check if Auto Open was enabled.
+
+
 = v1.1 =
 * Added Importer for Easy Modal v2 - Availabe under Tools -> Import
 * Added Easy Modal v2 Compatibility Option - Available under Settings -> Misc (This will allow all of your existing eModal classes to open the proper Popup once imported)
 * Added custom selector functionality - Availabe on Modal editor (This will allow you to use your own css selectors that when clicked will trigger the popup to open. Ex. #main-menu li.menu-item-3 would cause the corresponding menu item to trigger that popup)
-* Merged Auto Open Extension into Free Version.
-* Added better support for custom post types.
+
 
 = v1.0.5 =
 * Fixed bug caused by changes in v1.0.4.
