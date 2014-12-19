@@ -5,7 +5,7 @@ Plugin URI: https://wppopupmaker.com?utm_source=WordPress+Page&utm_medium=Text+L
 Donate link: 
 Tags: popup,popups,modal,modals,popup form,form modal,conversion,conversions,dialog box,auto open
 Requires at least: 3.4
-Tested up to: 4.0.1
+Tested up to: 4.1
 Stable tag: 1.1.5
 
 License: GNU Version 2 or Any Later Version
