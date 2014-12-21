@@ -22,6 +22,8 @@ Use any of your forms from the most popular form plugins, out-of-the-box, inside
 * Ninja Forms
 * Contact Form 7
 
+WordPress Developers: We are actively looking for contributors. Both for the core plugin and authors who want to create extensions. If you want to contribute contact via twitter @daniel_iser
+
 [Subscribe to our Newsletter](https://wppopupmaker.com/newsletter-sign-up?utm_source=WordPress+Page&utm_medium=Text+Link&utm_campaign=Newsletter+Signup "Popup Maker Newsletter Sign Up") and receive tutorials and guides tailored to teaching you how to drastically improve your conversion rates using Popup Maker. Also, for a limited time only, sign up and receive Unlimited Themes and Advanced Theme Builder for free, plus 25% off your first purchase from our Extension Marketplace!
 
 * If you like the plugin please rate & review it! If you love the plugin and want news & updates, follow us on [Twitter](https://twitter.com/wppopupmaker "Popup Maker on Twitter")!
