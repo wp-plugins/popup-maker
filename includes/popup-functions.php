@@ -50,10 +50,11 @@ function popmake_get_the_popup_data_attr( $popup_id = null ) {
 		'id'   => $popup_id,
 		'slug' => $post->post_name,
 		'meta' => array(
-			'display'    => popmake_get_popup_display( $popup_id ),
-			'close'      => popmake_get_popup_close( $popup_id ),
-			'click_open' => popmake_get_popup_click_open( $popup_id ),
-			'auto_open'  => popmake_get_popup_auto_open( $popup_id ),
+			'display'     => popmake_get_popup_display( $popup_id ),
+			'close'       => popmake_get_popup_close( $popup_id ),
+			'click_open'  => popmake_get_popup_click_open( $popup_id ),
+			'auto_open'   => popmake_get_popup_auto_open( $popup_id ),
+			'admin_debug' => popmake_get_popup_admin_debug( $popup_id ),
 		)
 	);
 	return apply_filters('popmake_get_the_popup_data_attr', $data_attr, $popup_id );
@@ -264,6 +265,18 @@ function popmake_get_popup_auto_open( $popup_id = NULL, $key = NULL ) {
 }
 
 
+/**
+ * Returns the auto open meta of a popup.
+ *
+ * @since 1.1.8
+ * @param int $popup_id ID number of the popup to retrieve a admin debug meta for
+ * @return mixed array|string of the popup admin debug meta 
+ */
+function popmake_get_popup_admin_debug( $popup_id = NULL, $key = NULL ) {
+	return popmake_get_popup_meta_group( 'admin_debug', $popup_id, $key );
+}
+
+
 
 function popmake_popup_content_container( $content ) {
 	global $post;
@@ -290,13 +303,24 @@ function popmake_popup_is_loadable( $popup_id ) {
 		$is_loadable = true;
 	}
 	/**
-	 * Home & Front Page Checks
+	 * Front Page Checks
 	 */
-	if( is_front_page() || is_home() ) {
+	if( is_front_page() ) {
 		if( !$sitewide && array_key_exists('on_home', $conditions) ) {
 			$is_loadable = true;
 		}
 		elseif( $sitewide && array_key_exists('exclude_on_home', $conditions) ) {
+			$is_loadable = false;
+		}
+	}
+	/**
+	 * Blog Index Page Checks
+	 */
+	if( is_home() ) {
+		if( !$sitewide && array_key_exists('on_blog', $conditions) ) {
+			$is_loadable = true;
+		}
+		elseif( $sitewide && array_key_exists('exclude_on_blog', $conditions) ) {
 			$is_loadable = false;
 		}
 	}
