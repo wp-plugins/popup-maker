@@ -6,7 +6,7 @@ Donate link:
 Tags: age restriction, age verification, auto open, automatic popup, conversion, conversions, custom popup, dialog box, exit intent, fancy box, fancy popup, form modal, full page popup, full screen pop, full screen popup, marketing, modal, modals, onclick popup, optin popup, pop-up, pop-ups, popup, popup ads, popup advertising, popup box, popup form, popup message, popup window, popups, unblockable, wordpress popup
 Requires at least: 3.4
 Tested up to: 4.2
-Stable tag: 1.1.9
+Stable tag: 1.1.10
 License: GNU Version 2 or Any Later Version
 
 Easily turn users into cash using Popup Maker - the most versatile & expansive popup plugin for WordPress!
@@ -21,6 +21,8 @@ Use any of your forms from the most popular form plugins, out-of-the-box, inside
 * Gravity Forms
 * Ninja Forms
 * Contact Form 7
+
+Need it in another language? Help us [translate Popup Maker](https://www.transifex.com/projects/p/popup-maker).
 
 [Subscribe to our Newsletter](https://wppopupmaker.com/newsletter-sign-up?utm_source=WordPress+Page&utm_medium=Text+Link&utm_campaign=Newsletter+Signup "Popup Maker Newsletter Sign Up") and receive tutorials and guides tailored to teaching you how to drastically improve your conversion rates using Popup Maker. Also, for a limited time only, sign up and receive Unlimited Themes and Advanced Theme Builder for free, plus 25% off your first purchase from our Extension Marketplace!
 
