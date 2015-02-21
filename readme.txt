@@ -76,6 +76,10 @@ For more information, visit [Popup Maker](https://wppopupmaker.com?utm_source=Wo
 
 == Changelog ==
 
+= v1.1.10 =
+* Fixed invalid argument bug passed to google font foreach.
+* Fixed CSS box-sizing cross browser support.
+
 = v1.1.9 =
 * Added %'s to reponsive sizes in size dropdown.
 * Remove usage of the_content and the_content filters.
