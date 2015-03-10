@@ -1,5 +1,5 @@
 /**
- * Popup Maker v1.1.8
+ * Popup Maker v1.2
  */
 (function (jQuery) {
     "use strict";
@@ -76,8 +76,6 @@
                             var src = jQuery(this).attr('src')
                                 // Remove autoplay so video doesn't start playing again.
                                 .replace('autoplay=1', '1=1');
-
-                            console.log(src);
                             jQuery(this).attr('src', '').attr('src', src);
                         });
                     })
@@ -246,10 +244,13 @@
                 }).show();
             }
 
+            $this
+                .removeClass('responsive size-nano size-micro size-tiny size-small size-medium size-normal size-large size-xlarge fixed custom-position')
+                .addClass('size-' + settings.meta.display.size);
+
+
             if (display.position_fixed) {
                 $this.addClass('fixed');
-            } else {
-                $this.removeClass('fixed');
             }
             if (settings.meta.display.size === 'custom') {
                 $this.css({
@@ -258,16 +259,12 @@
                 });
             } else {
                 if (settings.meta.display.size !== 'auto') {
-                    if (settings.meta.display.responsive_min_width !== '') {
-                        $this.css({
-                            mixWidth: settings.meta.display.responsive_min_width + settings.meta.display.responsive_min_width_unit
+                    $this
+                        .addClass('responsive')
+                        .css({
+                            mixWidth: settings.meta.display.responsive_min_width !== '' ? settings.meta.display.responsive_min_width + settings.meta.display.responsive_min_width_unit : 'auto',
+                            maxWidth: settings.meta.display.responsive_max_width !== '' ? settings.meta.display.responsive_max_width + settings.meta.display.responsive_max_width_unit : 'auto'
                         });
-                    }
-                    if (settings.meta.display.responsive_max_width !== '') {
-                        $this.css({
-                            maxWidth: settings.meta.display.responsive_max_width + settings.meta.display.responsive_max_width_unit
-                        });
-                    }
                 }
             }
 
@@ -355,7 +352,11 @@
                 borderWidth: theme.close.border_width + 'px',
                 borderRadius: theme.close.border_radius + 'px',
                 boxShadow: close_inset + theme.close.boxshadow_horizontal + 'px ' + theme.close.boxshadow_vertical + 'px ' + theme.close.boxshadow_blur + 'px ' + theme.close.boxshadow_spread + 'px ' + jQuery.fn.popmake.utilities.convert_hex(theme.close.boxshadow_color, theme.close.boxshadow_opacity),
-                textShadow: theme.close.textshadow_horizontal + 'px ' + theme.close.textshadow_vertical + 'px ' + theme.close.textshadow_blur + 'px ' + jQuery.fn.popmake.utilities.convert_hex(theme.close.textshadow_color, theme.close.textshadow_opacity)
+                textShadow: theme.close.textshadow_horizontal + 'px ' + theme.close.textshadow_vertical + 'px ' + theme.close.textshadow_blur + 'px ' + jQuery.fn.popmake.utilities.convert_hex(theme.close.textshadow_color, theme.close.textshadow_opacity),
+                left: 'auto',
+                right: 'auto',
+                bottom: 'auto',
+                top: 'auto'
             });
             switch (theme.close.location) {
             case "topleft":
@@ -890,8 +891,6 @@
                 f4_press: 0
             }
         },
-
-
         container: {
             active_class: 'active',
             attr: {
