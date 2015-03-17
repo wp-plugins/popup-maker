@@ -1,5 +1,5 @@
 === Popup Maker ===
-Contributors: danieliser
+Contributors: danieliser, mrjonwilson
 Author URI: http://danieliser.com
 Plugin URI: https://wppopupmaker.com?utm_source=WordPress+Page&utm_medium=Text+Link&utm_campaign=Plugin+URI
 Donate link: 
