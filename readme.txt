@@ -24,7 +24,7 @@ Use any of your forms from the most popular form plugins, out-of-the-box, inside
 
 Need it in another language? Help us [translate Popup Maker](https://www.transifex.com/projects/p/popup-maker).
 
-[Subscribe to our Newsletter](https://wppopupmaker.com/newsletter-sign-up?utm_source=WordPress+Page&utm_medium=Text+Link&utm_campaign=Newsletter+Signup "Popup Maker Newsletter Sign Up") and receive tutorials and guides tailored to teaching you how to drastically improve your conversion rates using Popup Maker. Also, for a limited time only, sign up and receive Unlimited Themes and Advanced Theme Builder for free, plus 25% off your first purchase from our Extension Marketplace!
+[Subscribe to our Newsletter](https://wppopupmaker.com/newsletter-sign-up?utm_source=WordPress+Page&utm_medium=Text+Link&utm_campaign=Newsletter+Signup "Popup Maker Newsletter Sign Up") and receive tutorials and guides tailored to teaching you how to drastically improve your conversion rates using Popup Maker. Also, for a limited time only, sign up and receive 25% off your first purchase from our Extension Marketplace!
 
 * If you like the plugin please rate & review it! If you love the plugin and want news & updates, follow us on [Twitter](https://twitter.com/wppopupmaker "Popup Maker on Twitter")!
 * Check out the [Popup Maker Website](https://wppopupmaker.com?utm_source=WordPress+Page&utm_medium=Text+Link&utm_campaign=Home+Page "Popup Maker Website") for everything Popup Maker.
