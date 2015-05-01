@@ -2,7 +2,7 @@
 Contributors: danieliser, mrjonwilson
 Author URI: http://danieliser.com
 Plugin URI: https://wppopupmaker.com?utm_source=WordPress+Page&utm_medium=Text+Link&utm_campaign=Plugin+URI
-Donate link: 
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4QWL6T68F539L
 Tags: age restriction, age verification, auto open, automatic popup, conversion, conversions, custom popup, dialog box, exit intent, fancy box, fancy popup, form modal, full page popup, full screen pop, full screen popup, marketing, modal, modals, onclick popup, optin popup, pop-up, pop-ups, popup, popup ads, popup advertising, popup box, popup form, popup message, popup window, popups, unblockable, wordpress popup
 Requires at least: 3.4
 Tested up to: 4.2
