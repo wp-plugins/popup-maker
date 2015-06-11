@@ -1,12 +1,12 @@
 === Popup Maker ===
-Contributors: danieliser, mrjonwilson
+Contributors: danieliser
 Author URI: http://danieliser.com
 Plugin URI: https://wppopupmaker.com?utm_source=WordPress+Page&utm_medium=Text+Link&utm_campaign=Plugin+URI
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4QWL6T68F539L
+Donate link: 
 Tags: age restriction, age verification, auto open, automatic popup, conversion, conversions, custom popup, dialog box, exit intent, fancy box, fancy popup, form modal, full page popup, full screen pop, full screen popup, marketing, modal, modals, onclick popup, optin popup, pop-up, pop-ups, popup, popup ads, popup advertising, popup box, popup form, popup message, popup window, popups, unblockable, wordpress popup
 Requires at least: 3.4
 Tested up to: 4.2
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GNU Version 2 or Any Later Version
 
 Easily turn users into cash using Popup Maker - the most versatile & expansive popup plugin for WordPress!
@@ -24,7 +24,7 @@ Use any of your forms from the most popular form plugins, out-of-the-box, inside
 
 Need it in another language? Help us [translate Popup Maker](https://www.transifex.com/projects/p/popup-maker).
 
-[Subscribe to our Newsletter](https://wppopupmaker.com/newsletter-sign-up?utm_source=WordPress+Page&utm_medium=Text+Link&utm_campaign=Newsletter+Signup "Popup Maker Newsletter Sign Up") and receive tutorials and guides tailored to teaching you how to drastically improve your conversion rates using Popup Maker. Also, for a limited time only, sign up and receive 25% off your first purchase from our Extension Marketplace!
+[Subscribe to our Newsletter](https://wppopupmaker.com/newsletter-sign-up?utm_source=WordPress+Page&utm_medium=Text+Link&utm_campaign=Newsletter+Signup "Popup Maker Newsletter Sign Up") and receive tutorials and guides tailored to teaching you how to drastically improve your conversion rates using Popup Maker. Also, for a limited time only, sign up and receive Unlimited Themes and Advanced Theme Builder for free, plus 25% off your first purchase from our Extension Marketplace!
 
 * If you like the plugin please rate & review it! If you love the plugin and want news & updates, follow us on [Twitter](https://twitter.com/wppopupmaker "Popup Maker on Twitter")!
 * Check out the [Popup Maker Website](https://wppopupmaker.com?utm_source=WordPress+Page&utm_medium=Text+Link&utm_campaign=Home+Page "Popup Maker Website") for everything Popup Maker.
@@ -68,6 +68,16 @@ For more information, visit [Popup Maker](https://wppopupmaker.com?utm_source=Wo
 
 [Plugin Developers Site](http://danieliser.com "Web Developer & WordPress Enthusiast") - Daniel Iser
 
+== Frequently Asked Questions ==
+
+= Why aren't my popups opening/working? =
+
+There are several common causes for this which include:
+* Your site includes RevSlider and it is older than v4.6.5
+* You have not set up your popups targeting conditions (top right when editing a popup).
+* Your site is loading multiple copies of jQuery
+* There is a JS error caused by another plugin or your theme. You can check this using your browsers console (Press F12).
+
 == Screenshots ==
 
 1. Create an infinite amount of popups and put any content inside your popups! No restrictions, no limitations - customize your popup content to fit your needs.
@@ -77,6 +87,23 @@ For more information, visit [Popup Maker](https://wppopupmaker.com?utm_source=Wo
 5. Theme every element of your popups to blend perfectly into your site: Background Overlay, Popup Container, Close Button, Google Fonts & much more. All in all, customize your popup theme with over 60 options!
 
 == Changelog ==
+
+= v1.2.2 =
+* Added (string) typecast to prevent errors in wp_localize_script when passing integers.
+* Added 100% French & Hungarian translations.
+* Added partial German translation.
+* Moved template.php require line to load for both admin and front end for use in ajax responses.
+* Changed order of admin pages to allow extensions to load before settings/help/tools pages on menu.
+* Added troubleshooting FAQ to readme.
+* Added version to JS object for backward compatibility checks.
+* Added check for preventOpen class before opening. This class will prevent the popup from opening.
+* Corrected minWidth variable name.
+* Added namespace to the auto open cookie event.
+* Changed the last open trigger to use the jQuery object instead of xpath.
+* Added an isScrolling variable to detect when the browser is actively scrolling.
+* Checked isScrolling before adding overflow styles to the HTML element to prevent glitching.
+* Temporarily removed the grow animations due to removal of Greensock Animation Platform.
+* Removed Greensock Animation Platform dependancy.
 
 = v1.2.1 =
 * Fixed bug caused by null value passed to JS data attr.

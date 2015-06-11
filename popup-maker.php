@@ -4,7 +4,7 @@
  * Plugin URI: https://wppopupmaker.com
  * Description: Easily create & style popups with any content. Theme editor to quickly style your popups. Add forms, social media boxes, videos & more. 
  * Author: Daniel Iser
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author URI: https://wppopupmaker.com
  * Text Domain: popup-maker
  * 
@@ -144,7 +144,7 @@ final class Popup_Maker {
 		}
 
 		if ( !defined('POPMAKE_VERSION') ) {
-			define('POPMAKE_VERSION', '1.2.1' );	
+			define('POPMAKE_VERSION', '1.2.2' );	
 		}
 
 		if ( !defined('POPMAKE_DB_VERSION') ) {
@@ -189,6 +189,10 @@ final class Popup_Maker {
 		require_once POPMAKE_DIR . 'includes/integrations/gravityforms.php';
 		require_once POPMAKE_DIR . 'includes/integrations/google-fonts.php';
 		
+		require_once POPMAKE_DIR . 'includes/templates.php';
+		require_once POPMAKE_DIR . 'includes/load-popups.php';
+		require_once POPMAKE_DIR . 'includes/license-handler.php';
+
 		if ( is_admin() ) {
 			require_once POPMAKE_DIR . 'includes/admin/welcome.php';
 			require_once POPMAKE_DIR . 'includes/admin/welcome/about.php';
@@ -221,10 +225,6 @@ final class Popup_Maker {
 			require_once POPMAKE_DIR . 'includes/admin/help/help-page.php';
 			require_once POPMAKE_DIR . 'includes/admin/metabox-support.php';
 			require_once POPMAKE_DIR . 'includes/admin/metabox-share.php';
-			require_once POPMAKE_DIR . 'includes/license-handler.php';
-		} else {
-			require_once POPMAKE_DIR . 'includes/templates.php';
-			require_once POPMAKE_DIR . 'includes/load-popups.php';
 		}
 
 		require_once POPMAKE_DIR . 'includes/install.php';
