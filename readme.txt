@@ -23,6 +23,7 @@ Use any of your forms from the most popular form plugins, out-of-the-box, inside
 * Contact Form 7
 
 Available Languages
+
 * Hungarian
 * French
 * German
