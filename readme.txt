@@ -9,7 +9,7 @@ Tested up to: 4.2.4
 Stable tag: 1.3
 License: GNU Version 2 or Any Later Version
 
-The most versatile popup plugin for WordPress! Grow email subscriber lists, get more FB Likes, create login modals, content restriction popups & much more.
+The most versatile popup plugin for WordPress! Grow email subscriber lists, get more FB Likes, create login modals, content restriction & much more.
 
 == Description ==
 This isn't your grandmas popup software, get ready to increase subscriptions, user interaction, conversion rates and overall usability of your website. Popup Maker is the most versatile and easy to use popup, modal & content overlay plugin available. With a wide variety of customization settings you can create any type of overlay you can imagine. With a growing library of extensions you can further increase it's power. Create slide outs for related content, banner notices, optin or contact forms, special advertisements & much more. there are no limits here for customizability or creativity.
