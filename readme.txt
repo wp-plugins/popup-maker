@@ -99,7 +99,7 @@ There are several common causes for this which include:
 
 == Changelog ==
 
-= v1.3 =
+= v1.3 - 8/7/2015 =
 
 * Feature: Added unlimited themes functionality to the core.
 * Feature: Allow disabling of event.prevendDefault() for on click events by adding do-default class.
