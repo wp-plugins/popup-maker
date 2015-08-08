@@ -1,14 +1,18 @@
 <?php
+
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_description', 0);
-function popmake_popup_theme_close_meta_box_field_description( $popup_theme_id )
-{
-	?></tbody></table><p><?php _e( 'Theme the close button for the popups.', 'popup-maker' ); ?></p><table class="form-table"><tbody><?php
+function popmake_popup_theme_close_meta_box_field_description( $popup_theme_id ) { ?>
+	</tbody></table><p><?php _e( 'Theme the close button for the popups.', 'popup-maker' ); ?></p><table class="form-table"><tbody><?php
 }
 
 add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_text', 10);
-function popmake_popup_theme_close_meta_box_field_text( $popup_theme_id )
-{
-	?><tr>
+function popmake_popup_theme_close_meta_box_field_text( $popup_theme_id ) { ?>
+	<tr>
 		<th scope="row">
 			<label for="popup_theme_close_text"><?php _e( 'Text', 'popup-maker' );?></label>
 		</th>
@@ -21,11 +25,10 @@ function popmake_popup_theme_close_meta_box_field_text( $popup_theme_id )
 
 
 add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_padding', 20);
-function popmake_popup_theme_close_meta_box_field_padding( $popup_theme_id )
-{
-	?><tr>
+function popmake_popup_theme_close_meta_box_field_padding( $popup_theme_id ) { ?>
+	<tr>
 		<th scope="row">
-			<label for="popup_theme_close_padding"><?php _e( 'Padding', 'popup-maker' );?></label> 
+			<label for="popup_theme_close_padding"><?php _e( 'Padding', 'popup-maker' );?></label>
 		</th>
 		<td>
 			<input type="text" readonly
@@ -43,10 +46,48 @@ function popmake_popup_theme_close_meta_box_field_padding( $popup_theme_id )
 }
 
 
-add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_location', 30);
-function popmake_popup_theme_close_meta_box_field_location( $popup_theme_id )
-{
-	?><tr>
+add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_size', 30);
+function popmake_popup_theme_close_meta_box_field_size( $popup_theme_id ) { ?>
+	<tr>
+		<th scope="row">
+			<label for="popup_theme_close_height"><?php _e( 'Height', 'popup-maker' );?></label>
+		</th>
+		<td>
+			<input type="text" readonly
+			       value="<?php esc_attr_e(popmake_get_popup_theme_close( $popup_theme_id, 'height' ))?>"
+			       name="popup_theme_close_height"
+			       id="popup_theme_close_height"
+			       class="popmake-range-manual"
+			       step="<?php esc_html_e(apply_filters('popmake_popup_theme_step_close_height', 1));?>"
+			       min="<?php esc_html_e(apply_filters('popmake_popup_theme_min_close_height', 0));?>"
+			       max="<?php esc_html_e(apply_filters('popmake_popup_theme_max_close_height', 100));?>"
+				/>
+			<span class="range-value-unit regular-text">px</span>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<label for="popup_theme_close_width"><?php _e( 'Width', 'popup-maker' );?></label>
+		</th>
+		<td>
+			<input type="text" readonly
+			       value="<?php esc_attr_e(popmake_get_popup_theme_close( $popup_theme_id, 'width' ))?>"
+			       name="popup_theme_close_width"
+			       id="popup_theme_close_width"
+			       class="popmake-range-manual"
+			       step="<?php esc_html_e(apply_filters('popmake_popup_theme_step_close_width', 1));?>"
+			       min="<?php esc_html_e(apply_filters('popmake_popup_theme_min_close_width', 0));?>"
+			       max="<?php esc_html_e(apply_filters('popmake_popup_theme_max_close_width', 100));?>"
+				/>
+			<span class="range-value-unit regular-text">px</span>
+		</td>
+	</tr><?php
+}
+
+
+add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_location', 40);
+function popmake_popup_theme_close_meta_box_field_location( $popup_theme_id ) { ?>
+	<tr>
 		<th scope="row">
 			<label for="popup_theme_close_location"><?php _e( 'Location', 'popup-maker' );?></label>
 		</th>
@@ -136,11 +177,9 @@ function popmake_popup_theme_close_meta_box_field_location( $popup_theme_id )
 }
 
 
-
-add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_font', 40);
-function popmake_popup_theme_close_meta_box_field_font( $popup_theme_id )
-{
-	?><tr class="title-divider">
+add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_font', 50);
+function popmake_popup_theme_close_meta_box_field_font( $popup_theme_id ) { ?>
+	<tr class="title-divider">
 		<th colspan="2"><h3 class="title"><?php _e( 'Font', 'popup-maker' );?></h3></th>
 	</tr>
 	<tr>
@@ -237,10 +276,9 @@ function popmake_popup_theme_close_meta_box_field_font( $popup_theme_id )
 }
 
 
-add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_background', 50);
-function popmake_popup_theme_close_meta_box_field_background( $popup_theme_id )
-{
-	?><tr class="title-divider">
+add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_background', 60);
+function popmake_popup_theme_close_meta_box_field_background( $popup_theme_id ) { ?>
+	<tr class="title-divider">
 		<th colspan="2"><h3 class="title"><?php _e( 'Background', 'popup-maker' );?></ h3></th>
 	</tr>
 	<tr>
@@ -272,7 +310,7 @@ function popmake_popup_theme_close_meta_box_field_background( $popup_theme_id )
 }
 
 
-add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_atb_extension_promotion', 60);
+add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_atb_extension_promotion', 70);
 function popmake_popup_theme_close_meta_box_field_atb_extension_promotion( $popup_theme_id ) { ?>
 	<tr>
 		<th colspan="2" class="popmake-upgrade-tip">
@@ -281,10 +319,9 @@ function popmake_popup_theme_close_meta_box_field_atb_extension_promotion( $popu
 	</tr><?php
 }
 
-add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_border', 70);
-function popmake_popup_theme_close_meta_box_field_border( $popup_theme_id )
-{
-	?><tr class="title-divider">
+add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_border', 80);
+function popmake_popup_theme_close_meta_box_field_border( $popup_theme_id ) { ?>
+	<tr class="title-divider">
 		<th colspan="2"><h3 class="title"><?php _e( 'Border', 'popup-maker' );?></h3></th>
 	</tr>
 	<tr>
@@ -349,10 +386,9 @@ function popmake_popup_theme_close_meta_box_field_border( $popup_theme_id )
 }
 
 
-add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_boxshadow', 80);
-function popmake_popup_theme_close_meta_box_field_boxshadow( $popup_theme_id )
-{
-	?><tr class="title-divider">
+add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_boxshadow', 90);
+function popmake_popup_theme_close_meta_box_field_boxshadow( $popup_theme_id ) { ?>
+	<tr class="title-divider">
 		<th colspan="2"><h3 class="title"><?php _e( 'Drop Shadow', 'popup-maker' );?></h3></th>
 	</tr>
 	<tr>
@@ -470,10 +506,9 @@ function popmake_popup_theme_close_meta_box_field_boxshadow( $popup_theme_id )
 	</tr><?php
 }
 
-add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_textshadow', 90);
-function popmake_popup_theme_close_meta_box_field_textshadow( $popup_theme_id )
-{
-	?><tr class="title-divider">
+add_action('popmake_popup_theme_close_meta_box_fields', 'popmake_popup_theme_close_meta_box_field_textshadow', 100);
+function popmake_popup_theme_close_meta_box_field_textshadow( $popup_theme_id ) { ?>
+	<tr class="title-divider">
 		<th colspan="2"><h3 class="title"><?php _e( 'Text Shadow', 'popup-maker' );?></h3></th>
 	</tr>
 	<tr>

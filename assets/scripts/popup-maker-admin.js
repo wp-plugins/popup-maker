@@ -1,6 +1,7 @@
 /**
- * Popup Maker v1.2
+ * Popup Maker v1.3.0
  */
+
 var PopMakeAdmin;
 (function () {
     "use strict";
@@ -39,19 +40,19 @@ var PopMakeAdmin;
             if (jQuery('#posts-filter').length) {
                 jQuery('#wpbody-content > .wrap > h2:first').after(jQuery('.popmake-newsletter-optin'));
 
-            // Modal & Theme Editors
+                // Modal & Theme Editors
             } else if (jQuery('#titlediv').length) {
                 jQuery('#titlediv').append(jQuery('.popmake-newsletter-optin'));
 
-            // Welcome & Similar Pages
+                // Welcome & Similar Pages
             } else if (jQuery('.about-text').length && jQuery('.popmake-badge').length) {
                 jQuery('.nav-tab-wrapper').after(jQuery('.popmake-newsletter-optin'));
 
-            // Settings & Other Tabbed Pages
+                // Settings & Other Tabbed Pages
             } else if (jQuery('#poststuff .tabwrapper').length) {
                 jQuery('#poststuff .tabwrapper').prepend(jQuery('.popmake-newsletter-optin'));
 
-            // Settings & Other Tabbed Pages
+                // Settings & Other Tabbed Pages
             } else if (jQuery('#poststuff').length) {
                 jQuery('#poststuff').prepend(jQuery('.popmake-newsletter-optin'));
             }
@@ -81,7 +82,7 @@ var PopMakeAdmin;
                     });
             });
         },
-        attachTabsPanelListeners : function () {
+        attachTabsPanelListeners: function () {
             jQuery('#poststuff').bind('click', function (event) {
                 var selectAreaMatch, panelId, wrapper, items,
                     target = jQuery(event.target),
@@ -154,7 +155,7 @@ var PopMakeAdmin;
                 }
             });
         },
-        attachQuickSearchListeners : function () {
+        attachQuickSearchListeners: function () {
             var searchTimer;
             jQuery('.quick-search').keypress(function (event) {
                 var t = jQuery(this);
@@ -170,7 +171,7 @@ var PopMakeAdmin;
                 }, 400);
             }).attr('autocomplete', 'off');
         },
-        updateQuickSearchResults : function (input) {
+        updateQuickSearchResults: function (input) {
             var panel, params,
                 minSearchLength = 2,
                 q = input.val();
@@ -191,7 +192,7 @@ var PopMakeAdmin;
                 PopMakeAdmin.processQuickSearchQueryResponse(menuMarkup, params, panel);
             });
         },
-        processQuickSearchQueryResponse : function (resp, req, panel) {
+        processQuickSearchQueryResponse: function (resp, req, panel) {
             var matched, newID,
                 form = jQuery('form#post'),
                 takenIDs = {},
@@ -219,13 +220,12 @@ var PopMakeAdmin;
 
                     takenIDs[newID] = true;
                     if (newID !== matched[1]) {
-                        $item.html($item.html().replace(new RegExp(
-                            'menu-item\\[' + matched[1] + '\\]',
-                            'g'
-                        ),
-                            'menu-item[' + newID + ']'
+                        $item.html(
+                            $item.html().replace(
+                                new RegExp('menu-item\\[' + matched[1] + '\\]', 'g'),
+                                'menu-item[' + newID + ']'
                             )
-                            );
+                        );
                     }
                 }
             });
@@ -263,24 +263,24 @@ var PopMakeAdmin;
                 $plus,
                 $minus,
                 slider = jQuery('<input type="range"/>'),
-                plus    = jQuery('<button class="popmake-range-plus">+</button>'),
-                minus   = jQuery('<button class="popmake-range-minus">-</button>');
+                plus = jQuery('<button class="popmake-range-plus">+</button>'),
+                minus = jQuery('<button class="popmake-range-minus">-</button>');
 
             jQuery(document).on('input', 'input[type="range"]', function () {
                 var $this = jQuery(this);
                 $this.siblings('.popmake-range-manual').val($this.val());
             });
             jQuery('.popmake-range-manual').each(function () {
-                var $this   = jQuery(this),
-                    force   = $this.data('force-minmax'),
-                    min     = parseInt($this.prop('min'), 0),
-                    max     = parseInt($this.prop('max'), 0),
-                    step    = parseInt($this.prop('step'), 0),
-                    value   = parseInt($this.val(), 0);
+                var $this = jQuery(this),
+                    force = $this.data('force-minmax'),
+                    min = parseInt($this.prop('min'), 0),
+                    max = parseInt($this.prop('max'), 0),
+                    step = parseInt($this.prop('step'), 0),
+                    value = parseInt($this.val(), 0);
 
                 $slider = slider.clone();
-                $plus   = plus.clone();
-                $minus  = minus.clone();
+                $plus = plus.clone();
+                $minus = minus.clone();
 
                 if (force && value > max) {
                     value = max;
@@ -313,11 +313,11 @@ var PopMakeAdmin;
                 })
                 .on('change', '.popmake-range-manual', function () {
 
-                    var $this   = jQuery(this),
-                        max     = parseInt($this.prop('max'), 0),
-                        step     = parseInt($this.prop('step'), 0),
-                        force   = $this.data('force-minmax'),
-                        value     = parseInt($this.val(), 0);
+                    var $this = jQuery(this),
+                        max = parseInt($this.prop('max'), 0),
+                        step = parseInt($this.prop('step'), 0),
+                        force = $this.data('force-minmax'),
+                        value = parseInt($this.val(), 0);
 
                     $slider = $this.prev();
 
@@ -337,10 +337,10 @@ var PopMakeAdmin;
 
                     event.preventDefault();
 
-                    var $this   = jQuery(this).siblings('.popmake-range-manual'),
-                        step    = parseInt($this.prop('step'), 0),
-                        value   = parseInt($this.val(), 0),
-                        val     = value + step;
+                    var $this = jQuery(this).siblings('.popmake-range-manual'),
+                        step = parseInt($this.prop('step'), 0),
+                        value = parseInt($this.val(), 0),
+                        val = value + step;
 
                     $slider = $this.prev();
 
@@ -352,10 +352,10 @@ var PopMakeAdmin;
 
                     event.preventDefault();
 
-                    var $this   = jQuery(this).siblings('.popmake-range-manual'),
-                        step    = parseInt($this.prop('step'), 0),
-                        value   = parseInt($this.val(), 0),
-                        val     = value - step;
+                    var $this = jQuery(this).siblings('.popmake-range-manual'),
+                        step = parseInt($this.prop('step'), 0),
+                        value = parseInt($this.val(), 0),
+                        val = value - step;
 
                     $slider = $this.prev();
 
@@ -420,7 +420,7 @@ var PopMakeAdmin;
                         exclude = $option.attr('name').indexOf("exclude") >= 0,
                         type = exclude ? $option.attr('name').replace('popup_targeting_condition_exclude_on_specific_', '') : $option.attr('name').replace('popup_targeting_condition_on_specific_', ''),
                         type_box = exclude ? jQuery('#exclude_on_specific_' + type) : jQuery('#on_specific_' + type);
-                    
+
                     if ($this.is(':checked')) {
                         if ($this.val() === 'true') {
                             $option.prop('checked', true);
@@ -446,6 +446,7 @@ var PopMakeAdmin;
                         jQuery('.custom-size-only').hide();
                         if (jQuery("#popup_display_size").val() !== 'auto') {
                             jQuery('.responsive-size-only').show();
+                            jQuery('#popup_display_position_fixed, #popup_display_custom_height_auto, #popup_display_scrollable_content').prop('checked', false);
                         } else {
                             jQuery('.responsive-size-only').hide();
                         }
@@ -479,9 +480,17 @@ var PopMakeAdmin;
                         jQuery('tr.right').show();
                     }
                 },
+                auto_open_session_cookie_check = function () {
+                    if (jQuery("#popup_auto_open_session_cookie").is(":checked")) {
+                        jQuery('.not-session-cookie').hide();
+                    } else {
+                        jQuery('.not-session-cookie').show();
+                    }
+                },
                 auto_open_enabled_check = function () {
                     if (jQuery("#popup_auto_open_enabled").is(":checked")) {
                         jQuery('.auto-open-enabled').show();
+                        auto_open_session_cookie_check();
                     } else {
                         jQuery('.auto-open-enabled').hide();
                     }
@@ -499,15 +508,13 @@ var PopMakeAdmin;
                 update_popup_preview_content = function () {
                     var content = '';
 
-                    if (jQuery("#wp-content-wrap").hasClass("tmce-active")){
+                    if (jQuery("#wp-content-wrap").hasClass("tmce-active")) {
                         console.log(1);
                         content = tinyMCE.activeEditor.getContent();
                     } else {
                         console.log(2);
                         content = jQuery('#content').val();
                     }
-
-                    console.log(content);
 
                     jQuery
                         .ajax({
@@ -530,16 +537,22 @@ var PopMakeAdmin;
                 },
                 update_popup_preview_data = function () {
                     var form_values = jQuery("[name^='popup_display_']").serializeArray(),
-                        display = {},
                         i,
-                        data = jQuery('#popmake-preview').data('popmake');
+                        $popup = jQuery('#popmake-preview'),
+                        data = $popup.data('popmake');
 
                     for (i = 0; form_values.length > i; i += 1) {
                         if (form_values[i].name.indexOf('popup_display_') === 0) {
                             data.meta.display[form_values[i].name.replace('popup_display_', '')] = form_values[i].value;
                         }
                     }
+
+                    $popup.removeClass('theme-' + data.theme_id);
+
+                    data.theme_id = jQuery('#popup_theme').val();
+
                     jQuery('#popmake-preview')
+                        .addClass('theme-' + data.theme_id)
                         .data('popmake', data);
                 };
 
@@ -563,7 +576,6 @@ var PopMakeAdmin;
                         jQuery('#title').focus();
                     }
                 })
-
                 .on('keydown', '#title, #popuptitle', function (event) {
                     var keyCode = event.keyCode || event.which,
                         target;
@@ -585,31 +597,54 @@ var PopMakeAdmin;
                 .on('submit', '#post', function (event) {
                     var title = jQuery('#title').val();
                     if (title.length === 0 || title.replace(/\s/g, '').length === 0) {
+                        console.log(1);
                         event.preventDefault();
                         jQuery('div#notice').remove();
                         jQuery("<div id='notice' class='error below-h2'><p>A name is required for all popups.</p></div>").insertAfter('h2');
                         jQuery('#title').focus();
-                        jQuery('#ajax-loading').hide();
-                        jQuery('#publish').removeClass('button-primary-disabled');
+                        jQuery('#publishing-action .spinner').removeClass('is-active');
+                        jQuery('#publish').removeClass('disabled');
                         jQuery('#title').prop('required', 'required');
                     }
                 })
-                .on('click', '#popup_display_custom_height_auto', function () { update_size(); })
-                .on('click', "#popup_auto_open_enabled", function () { auto_open_enabled_check(); })
-                .on('click', ".popmake-reset-auto-open-cookie-key", function () { auto_open_reset_cookie_key(); })
-                .on('change', "#popup_display_size", function () { update_size(); })
-                .on('change', "#popup_display_animation_type", function () { update_animation(); })
-                .on('change', '#popup_display_location', function () { update_location(); });
-
+                .on('click', '#popup_display_custom_height_auto', function () {
+                    update_size();
+                })
+                .on('click', "#popup_auto_open_session_cookie", function () {
+                    auto_open_session_cookie_check();
+                })
+                .on('click', "#popup_auto_open_enabled", function () {
+                    auto_open_enabled_check();
+                })
+                .on('click', ".popmake-reset-auto-open-cookie-key", function () {
+                    auto_open_reset_cookie_key();
+                })
+                .on('change', "#popup_display_size", function () {
+                    update_size();
+                })
+                .on('change', "#popup_display_animation_type", function () {
+                    update_animation();
+                })
+                .on('change', '#popup_display_location', function () {
+                    update_location();
+                });
 
 
             jQuery('#popmake_popup_targeting_condition_fields .targeting_condition > input[type="checkbox"]')
-                .on('click', function () { update_type_options(jQuery(this)); })
-                .each(function () { update_type_options(jQuery(this)); });
+                .on('click', function () {
+                    update_type_options(jQuery(this));
+                })
+                .each(function () {
+                    update_type_options(jQuery(this));
+                });
 
             jQuery('input[type="radio"][id*="popup_targeting_condition_"]')
-                .on('click', function () { update_specific_checkboxes(jQuery(this)); })
-                .each(function () { update_specific_checkboxes(jQuery(this)); });
+                .on('click', function () {
+                    update_specific_checkboxes(jQuery(this));
+                })
+                .each(function () {
+                    update_specific_checkboxes(jQuery(this));
+                });
 
             jQuery('.posttypediv, .taxonomydiv').each(function () {
                 var $this = jQuery(this),
@@ -719,7 +754,7 @@ var PopMakeAdmin;
                             }
                         }
                     }
-                // Standard Font Chosen
+                    // Standard Font Chosen
                 } else {
                     $font_weight_options.show();
                     $font_style_options.show();
@@ -741,28 +776,29 @@ var PopMakeAdmin;
             });
         },
         convert_theme_for_preview: function (theme) {
-            jQuery.fn.popmake.themes[popmake_default_theme] = this.convert_meta_to_object(theme);
+            return;
+            //jQuery.fn.popmake.themes[popmake_default_theme] = this.convert_meta_to_object(theme);
         },
         convert_meta_to_object: function (data) {
             var converted_data = {},
                 element,
-                property;
+                property,
+                key;
 
-
-            for (var key in data) {
-                element = key.split(/_(.+)?/)[0];
-                property = key.split(/_(.+)?/)[1];
-                if(converted_data[element] === undefined) {
-                    converted_data[element] = {};
+            for (key in data) {
+                if (data.hasOwnProperty(key)) {
+                    element = key.split(/_(.+)?/)[0];
+                    property = key.split(/_(.+)?/)[1];
+                    if (converted_data[element] === undefined) {
+                        converted_data[element] = {};
+                    }
+                    converted_data[element][property] = data[key];
                 }
-                converted_data[element][property] = data[key];
             }
             return converted_data;
         },
         initialize_theme_page: function () {
             jQuery('#popuptitlediv').insertAfter('#titlediv');
-
-            popmake_default_theme = jQuery('#post_ID').val();
 
             var self = this,
                 table = jQuery('#popup_theme_close_location').parents('table');
@@ -770,6 +806,15 @@ var PopMakeAdmin;
             self.theme_page_listeners();
             self.theme_preview_scroll();
             self.update_font_selectboxes();
+
+            jQuery(document)
+                .on('click', '.popmake-preview', function (e) {
+                    e.preventDefault();
+                    jQuery('#popmake-preview, #popmake-overlay').css({visibility: "visible"}).show();
+                })
+                .on('click', '.popmake-close', function () {
+                    jQuery('#popmake-preview, #popmake-overlay').hide();
+                });
 
             jQuery('select.border-style').each(function () {
                 var $this = jQuery(this);
@@ -791,26 +836,26 @@ var PopMakeAdmin;
 
             jQuery('tr.topleft, tr.topright, tr.bottomleft, tr.bottomright', table).hide();
             switch (jQuery('#popup_theme_close_location').val()) {
-            case "topleft":
-                jQuery('tr.topleft', table).show();
-                break;
-            case "topright":
-                jQuery('tr.topright', table).show();
-                break;
-            case "bottomleft":
-                jQuery('tr.bottomleft', table).show();
-                break;
-            case "bottomright":
-                jQuery('tr.bottomright', table).show();
-                break;
+                case "topleft":
+                    jQuery('tr.topleft', table).show();
+                    break;
+                case "topright":
+                    jQuery('tr.topright', table).show();
+                    break;
+                case "bottomleft":
+                    jQuery('tr.bottomleft', table).show();
+                    break;
+                case "bottomright":
+                    jQuery('tr.bottomright', table).show();
+                    break;
             }
         },
         retheme_popup: function (theme) {
-            var $overlay = jQuery('.empreview .example-popup-overlay'),
-                $container = jQuery('.empreview .example-popup'),
-                $title = jQuery('.title', $container),
-                $content = jQuery('.content', $container),
-                $close = jQuery('.close-popup', $container),
+            var $overlay = jQuery('.empreview .example-popup-overlay, #popmake-overlay'),
+                $container = jQuery('.empreview .example-popup, #popmake-preview'),
+                $title = jQuery('.title, .popmake-title', $container),
+                $content = jQuery('.content, .popmake-content', $container),
+                $close = jQuery('.close-popup, .popmake-close', $container),
                 container_inset = theme.container_boxshadow_inset === 'yes' ? 'inset ' : '',
                 close_inset = theme.close_boxshadow_inset === 'yes' ? 'inset ' : '',
                 link;
@@ -863,8 +908,6 @@ var PopMakeAdmin;
                 jQuery('body').append('<link href="' + link + '" rel="stylesheet" type="text/css">');
             }
 
-
-
             $overlay.removeAttr('style').css({
                 backgroundColor: this.convert_hex(theme.overlay_background_color, theme.overlay_background_opacity)
             });
@@ -896,6 +939,8 @@ var PopMakeAdmin;
             });
             $close.html(theme.close_text).removeAttr('style').css({
                 padding: theme.close_padding + 'px',
+                height: theme.close_height > 0 ? theme.close_height + 'px' : 'auto',
+                width: theme.close_width > 0 ? theme.close_width + 'px' : 'auto',
                 backgroundColor: this.convert_hex(theme.close_background_color, theme.close_background_opacity),
                 color: theme.close_font_color,
                 lineHeight: theme.close_line_height + 'px',
@@ -911,30 +956,30 @@ var PopMakeAdmin;
                 textShadow: theme.close_textshadow_horizontal + 'px ' + theme.close_textshadow_vertical + 'px ' + theme.close_textshadow_blur + 'px ' + this.convert_hex(theme.close_textshadow_color, theme.close_textshadow_opacity)
             });
             switch (theme.close_location) {
-            case "topleft":
-                $close.css({
-                    top: theme.close_position_top + 'px',
-                    left: theme.close_position_left + 'px'
-                });
-                break;
-            case "topright":
-                $close.css({
-                    top: theme.close_position_top + 'px',
-                    right: theme.close_position_right + 'px'
-                });
-                break;
-            case "bottomleft":
-                $close.css({
-                    bottom: theme.close_position_bottom + 'px',
-                    left: theme.close_position_left + 'px'
-                });
-                break;
-            case "bottomright":
-                $close.css({
-                    bottom: theme.close_position_bottom + 'px',
-                    right: theme.close_position_right + 'px'
-                });
-                break;
+                case "topleft":
+                    $close.css({
+                        top: theme.close_position_top + 'px',
+                        left: theme.close_position_left + 'px'
+                    });
+                    break;
+                case "topright":
+                    $close.css({
+                        top: theme.close_position_top + 'px',
+                        right: theme.close_position_right + 'px'
+                    });
+                    break;
+                case "bottomleft":
+                    $close.css({
+                        bottom: theme.close_position_bottom + 'px',
+                        left: theme.close_position_left + 'px'
+                    });
+                    break;
+                case "bottomright":
+                    $close.css({
+                        bottom: theme.close_position_bottom + 'px',
+                        right: theme.close_position_right + 'px'
+                    });
+                    break;
             }
             jQuery(document).trigger('popmake-admin-retheme', [theme]);
         },
