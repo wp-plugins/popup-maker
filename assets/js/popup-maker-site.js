@@ -1,6 +1,7 @@
 /**
  * Popup Maker v1.3.6
  */
+var pm_cookie, pm_remove_cookie;
 (function (jQuery) {
     "use strict";
     var isScrolling = false;
@@ -174,8 +175,14 @@
                     $close = jQuery('.popmake-close', $this),
                     settings = $this.data('popmake');
 
+                $this.trigger('popmakeBeforeClose');
+
+                if ($this.hasClass('preventClose')) {
+                    $this.removeClass('preventClose');
+                    return this;
+                }
+
                 $this
-                    .trigger('popmakeBeforeClose')
                     .fadeOut(settings.close.close_speed, function () {
 
                         if ($overlay.length && $overlay.is(":visible")) {
@@ -617,8 +624,8 @@
         }
     };
 
-    jQuery.pm_cookie = jQuery.fn.popmake.cookie.process;
-    jQuery.pm_remove_cookie = jQuery.fn.popmake.cookie.remove;
+    pm_cookie = jQuery.pm_cookie = jQuery.fn.popmake.cookie.process;
+    pm_remove_cookie = jQuery.pm_remove_cookie = jQuery.fn.popmake.cookie.remove;
 
     jQuery.fn.popmake.utilities = {
         convert_hex: function (hex, opacity) {

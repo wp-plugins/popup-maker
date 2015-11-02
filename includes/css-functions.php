@@ -27,7 +27,7 @@ function popmake_hex2rgb( $hex ) {
 }
 
 function popmake_get_rgba_value( $hex, $opacity = 100 ) {
-	return 'rgba( ' . implode( ', ', popmake_hex2rgb( $hex ) ) . ', ' . ( $opacity / 100 ) . ' )';
+	return 'rgba( ' . implode( ', ', popmake_hex2rgb( strval( $hex ) ) ) . ', ' . ( intval( $opacity ) / 100 ) . ' )';
 }
 
 function popmake_get_border_style( $w, $s, $c ) {
@@ -184,6 +184,12 @@ function popmake_render_theme_styles( $popup_theme_id ) {
 				$rule = ".popmake.theme-{$popup_theme_id}";
 				if ( $slug ) {
 					$rule .= ", .popmake.theme-{$slug}";
+				}
+				break;
+			case 'close':
+				$rule = ".popmake.theme-{$popup_theme_id} > .popmake-close";
+				if ( $slug ) {
+					$rule .= ", .popmake.theme-{$slug} > .popmake-close";
 				}
 				break;
 			default:
